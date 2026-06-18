@@ -4,4 +4,4 @@ supabase
 python-dotenv
 python-jose[cryptography]
 passlib[bcrypt]
-add email-validator dependency
+email-validator
