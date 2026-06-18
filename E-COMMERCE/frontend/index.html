@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopSphere – Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="logo">🛒 ShopSphere</div>
+      <p class="tagline">Smart E-Commerce Platform</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required />
+          <span class="toggle-pass" onclick="togglePassword('password')">👁</span>
+        </div>
+        <div id="errorMsg" class="error-msg"></div>
+        <button type="submit" class="btn-login" id="loginBtn">Login</button>
+      </form>
+
+      <div class="divider">or</div>
+      <button class="btn-register" onclick="window.location.href='register.html'">Create Account</button>
+
+      <div class="session-panel">
+        <div class="session-header">
+          <span>🗂 Login Session Stack</span>
+          <button class="btn-undo" onclick="undoLogin()">⬅ Undo Last</button>
+        </div>
+        <ul id="sessionStack"></ul>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

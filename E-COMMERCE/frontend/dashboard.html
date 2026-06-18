@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopSphere – Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="dashboard-body">
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="nav-logo">🛒 ShopSphere</div>
+
+    <div class="nav-search">
+      <i class="fa fa-search"></i>
+      <input type="text" placeholder="Search clothes, brands..." />
+    </div>
+
+    <div class="nav-links">
+      <a href="#home"       class="nav-link active"><i class="fa fa-house"></i> Home</a>
+      <a href="#categories" class="nav-link"><i class="fa fa-list"></i> Categories</a>
+      <a href="#products"   class="nav-link"><i class="fa fa-shirt"></i> Products</a>
+      <a href="#"           class="nav-link"><i class="fa fa-heart"></i> Wishlist</a>
+      <a href="cart.html" class="nav-link">
+        <i class="fa fa-cart-shopping"></i> Cart
+        <span class="badge" id="cartBadge">0</span>
+      </a>
+      <a href="#" class="nav-link"><i class="fa fa-box"></i> Orders</a>
+    </div>
+
+    <div class="nav-user">
+      <div class="avatar" id="avatarCircle">D</div>
+      <span id="userGreeting">Hello, User</span>
+      <button class="btn-logout" onclick="logout()"><i class="fa fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </nav>
+
+  <!-- ── HERO BANNER ── -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="hero-badge">New Arrivals 2025</span>
+      <h1>Style That Speaks <span>For You</span></h1>
+      <p>Discover premium fashion collections — Tops, Dresses, Ethnic wear & more at unbeatable prices.</p>
+      <div class="hero-btns">
+        <button class="btn-shop" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now →</button>
+        <button class="btn-outline" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'})">Browse Categories</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>10K+</strong><span>Products</span></div>
+        <div class="stat"><strong>5K+</strong><span>Customers</span></div>
+        <div class="stat"><strong>4.8★</strong><span>Rating</span></div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80" alt="Fashion Banner"/>
+    </div>
+  </section>
+
+  <!-- ── PROMO STRIP ── -->
+  <div class="promo-strip">
+    <span>🚚 Free Shipping on orders above ₹999</span>
+    <span>🔄 Easy 30-day Returns</span>
+    <span>🔒 Secure Payments</span>
+    <span>⭐ 4.8/5 Rated by 5000+ Customers</span>
+  </div>
+
+  <!-- ── CATEGORIES ── -->
+  <section class="section" id="categories">
+    <div class="section-header">
+      <h2>Shop by Category</h2>
+      <a href="#" class="view-all">View All →</a>
+    </div>
+    <div class="categories-row">
+      <div class="cat-card active-cat">
+        <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=200&q=80" alt="Tops"/>
+        <span>Tops</span>
+      </div>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=200&q=80" alt="Dresses"/>
+        <span>Dresses</span>
+      </div>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=200&q=80" alt="Jeans"/>
+        <span>Jeans</span>
+      </div>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=200&q=80" alt="Ethnic"/>
+        <span>Ethnic</span>
+      </div>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=200&q=80" alt="Jackets"/>
+        <span>Jackets</span>
+      </div>
+      <div class="cat-card">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=200&q=80" alt="Kurtas"/>
+        <span>Kurtas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURED PRODUCTS ── -->
+  <section class="section" id="products">
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <div class="filter-tabs">
+        <button class="tab active" onclick="filterProducts('all', this)">All</button>
+        <button class="tab" onclick="filterProducts('tops', this)">Tops</button>
+        <button class="tab" onclick="filterProducts('dress', this)">Dresses</button>
+        <button class="tab" onclick="filterProducts('ethnic', this)">Ethnic</button>
+        <button class="tab" onclick="filterProducts('jeans', this)">Jeans</button>
+      </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <!-- ── BANNER AD ── -->
+  <section class="banner-ad">
+    <div class="banner-text">
+      <h2>Flat 40% OFF on Ethnic Wear</h2>
+      <p>Limited time offer — Use code <strong>ETHNIC40</strong> at checkout</p>
+      <button class="btn-shop">Grab the Deal →</button>
+    </div>
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Sale Banner"/>
+  </section>
+
+  <!-- ── TOAST ── -->
+  <div class="toast" id="toast"></div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

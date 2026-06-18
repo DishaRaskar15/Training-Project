@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopSphere – My Cart</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="dashboard-body">
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">🛒 ShopSphere</div>
+    <div class="nav-search">
+      <i class="fa fa-search"></i>
+      <input type="text" placeholder="Search clothes, brands..."/>
+    </div>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link"><i class="fa fa-house"></i> Home</a>
+      <a href="dashboard.html#products" class="nav-link"><i class="fa fa-shirt"></i> Products</a>
+      <a href="cart.html" class="nav-link active">
+        <i class="fa fa-cart-shopping"></i> Cart
+        <span class="badge" id="cartBadge">0</span>
+      </a>
+      <a href="#" class="nav-link"><i class="fa fa-heart"></i> Wishlist</a>
+      <a href="#" class="nav-link"><i class="fa fa-box"></i> Orders</a>
+    </div>
+    <div class="nav-user">
+      <div class="avatar" id="avatarCircle">U</div>
+      <span id="userGreeting">Hello, User</span>
+      <button class="btn-logout" onclick="logout()"><i class="fa fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </nav>
+
+  <!-- CART PAGE -->
+  <div class="cart-page">
+
+    <div class="cart-header">
+      <h1><i class="fa fa-cart-shopping"></i> My Cart</h1>
+      <div class="cart-actions">
+        <button class="btn-undo-cart" onclick="undoRemove()">
+          <i class="fa fa-rotate-left"></i> Undo Remove
+        </button>
+        <button class="btn-clear-cart" onclick="clearCart()">
+          <i class="fa fa-trash"></i> Clear Cart
+        </button>
+      </div>
+    </div>
+
+    <!-- DS INFO BOX -->
+    <div class="ds-info">
+      <span>📊 Data Structure: <strong>ArrayList</strong> (add/view) + <strong>Stack</strong> (undo remove)</span>
+    </div>
+
+    <div class="cart-layout">
+
+      <!-- CART ITEMS -->
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty" id="cartEmpty">
+          <i class="fa fa-cart-shopping"></i>
+          <p>Your cart is empty</p>
+          <a href="dashboard.html" class="btn-shop">Continue Shopping →</a>
+        </div>
+      </div>
+
+      <!-- ORDER SUMMARY -->
+      <div class="cart-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-row"><span>Items (<span id="itemCount">0</span>)</span><span id="subtotal">₹0</span></div>
+        <div class="summary-row"><span>Shipping</span><span id="shipping" class="green">FREE</span></div>
+        <div class="summary-row"><span>Discount</span><span id="discount" class="green">-₹0</span></div>
+        <div class="summary-divider"></div>
+        <div class="summary-row total"><span>Total</span><span id="total">₹0</span></div>
+        <button class="btn-checkout" onclick="checkout()">
+          <i class="fa fa-lock"></i> Proceed to Checkout
+        </button>
+        <a href="dashboard.html" class="continue-link">← Continue Shopping</a>
+
+        <!-- STACK VISUALIZER -->
+        <div class="stack-box">
+          <div class="stack-title"><i class="fa fa-layer-group"></i> Undo Stack (removed items)</div>
+          <ul id="undoStackList"><li class="stack-empty">Stack is empty</li></ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="cart.js"></script>
+</body>
+</html>
